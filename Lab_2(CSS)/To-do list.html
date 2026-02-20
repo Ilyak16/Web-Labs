@@ -1,0 +1,52 @@
+<html lang="ru"></html>
+<head>
+  <title>
+    Lab 2
+  </title>
+  <meta charset="UTF-8">
+  <style>
+    body{
+        background-color: #008B8B;
+    }
+    button
+    {
+        font-size: 14;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    }
+    button.red{
+        background-color: red;
+        padding: 15px;
+        border: 0;
+    }
+    button.create{
+        background-color: grey;
+        padding: 15px;
+        border: 0;
+        min-width: 300px; 
+    }
+    h2{
+        text-align: center;
+        color: white;
+    }
+    .MyInputForm{
+        text-align: center;
+        min-width: 300px;        
+    }
+    .MyInput{
+        border: 0;
+        width: 30%;
+        padding: 15px;
+    }
+  </style>
+</head>
+<body>
+    <h2>
+        Список дел
+    </h2>
+    <form class="MyInputForm">
+        <input class="MyInput" type="text" placeholder="Новый элемент списка"></input>
+        <button class="create" type="submit">Создать</button>
+        <button class="red" type="reset">Очистить всё</button>
+    </form>
+</body>
