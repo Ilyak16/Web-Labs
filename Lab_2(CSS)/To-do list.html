@@ -31,12 +31,80 @@
     }
     .MyInputForm{
         text-align: center;
-        min-width: 300px;        
+        min-width: 300px;    
+        display: flex;
+        justify-content: center;    
     }
     .MyInput{
         border: 0;
         width: 30%;
         padding: 15px;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin: 0 auto;
+        /* justify-content: center; */
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+    .centered{
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .container .list {
+        /* flex: 1; */
+        /* position: relative; */
+    }
+    .container ul{
+        /* position: absolute; */
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        background-color: white;
+        list-style-type: none;
+        padding-left: 0;
+
+    }
+    li{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        align-items: center;
+        padding: 0 20px;
+    }
+    li > span {
+        overflow: hidden; /* Обрезаем текст*/
+        white-space: nowrap; /* Отменяем переносы текста на следующие строки*/
+        text-overflow: ellipsis; /* Добавляем многоточие при обрезке*/
+        font-size: 18;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    ul > li:hover {
+        background-color: gray;
+        list-style-type: none;
+    }
+    .container .complete_task{
+        text-decoration: line-through;
+    }
+    .container .basik_task{
+        text-decoration: none;
+    }
+
+    .complete_task::before{
+        content: "✔";
+    }
+    .container .list .right_button{
+        position: relative;
+        right: 100px;
     }
   </style>
 </head>
@@ -49,4 +117,33 @@
         <button class="create" type="submit">Создать</button>
         <button class="red" type="reset">Очистить всё</button>
     </form>
+    <div class="container">
+        <div class="centered">
+            
+            <ul>
+                <li>
+                        <span class="complete_task">почесать кошку</span>
+                        <a class ="right_button">❌</a>
+                </li>
+                <li>
+                        <span class="basic_task">Полить картошку</span>
+                        <a class ="right_button">❌</a>
+                </li>
+                <li>
+                        <span class="basic_task">поесть акрошку</span>
+                        <a class ="right_button">❌</a>
+                </li>
+                <li>
+                        <span class="basic_task">поработать немножко</span>
+                        <a class ="right_button">❌</a>
+                </li>
+                <li>
+                        <span class="basic_task">почесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошкупочесать кошку</span>
+                        <a class ="right_button">❌</a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
 </body>
