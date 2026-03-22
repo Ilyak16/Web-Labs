@@ -12,82 +12,437 @@
         box-sizing: border-box;
     }
     body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
-        color: grey;
+        color: #666;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
     header {
-        background: green;
-        color: white;
-        padding: 20px;
-        text-align: center;
+        background: white;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 24px;
+        color: #2d5a3d;
+        font-weight: bold;
+    }
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #666;
+        font-size: 14px;
+    }
+    .header-phone {
+        color: #2d5a3d;
+        font-weight: bold;
     }
     .hero {
-        background: white;
-        padding: 60px 20px;
-        text-align: center;
-        
-    }
-    .hero h2{
-        background: white;
-        padding: 60px 20px;
+        margin-top: 60px;
+        padding: 80px 20px;
+        background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://rutrav.ru/wp-content/uploads/2025/07/zeleniy-gorod.jpg') center/cover;
         text-align: center;
     }
-    .hero p {
-        font-size: 16px;
-        color: black;
-        margin-bottom: 20px;
-    }
-    p.down{
-        color: green;
-        position: relative;
-        top: 130px;
+    .hero h1 {
         font-size: 64px;
+        color: #2d5a3d;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+    .hero-subtitle {
+        font-size: 24px;
+        color: #666;
+        margin-bottom: 30px;
     }
     .btn {
-        background: #2d5a3d;
+        background: #4a7c59;
         color: white;
-        padding: 15px 30px;
+        padding: 15px 40px;
         display: inline-block;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background: #2d5a3d;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 60px 20px;
+    }
+    .service-card {
+        text-align: center;
+    }
+    .service-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    .service-card h3 {
+        color: #2d5a3d;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .features {
+        background: #f9f9f9;
+        padding: 60px 20px;
+    }
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    .feature-box {
+        text-align: center;
+        padding: 30px;
+        background: white;
         border-radius: 5px;
     }
-    .content-wrapper{
+    .feature-box h4 {
+        color: #2d5a3d;
+        margin-bottom: 10px;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        color: #2d5a3d;
+        margin: 60px 0 40px;
+        font-weight: 300;
+    }
+    .popular-services {
+        padding: 40px 20px;
+    }
+    .service-tabs {
         display: flex;
-        align-items: center;
         justify-content: center;
-        margin: 0 auto;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .tab {
+        padding: 10px 25px;
+        background: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .tab.active {
+        background: #4a7c59;
+        color: white;
+    }
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    .pricing-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .pricing-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .pricing-card-content {
         padding: 20px;
-    } 
-    .image-block{
-        flex: 0 0 50%;
+    }
+    .pricing-card h4 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .price {
+        font-size: 24px;
+        color: #2d5a3d;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+    .contact-section {
+        background: #f9f9f9;
+        padding: 80px 20px;
+        text-align: center;
+    }
+    .contact-form {
         max-width: 600px;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
-    .text-block{
-        flex: 0 0 40;
-        text-align: left;
+    .contact-form input,
+    .contact-form textarea {
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 16px;
     }
-
+    .tagline {
+        text-align: center;
+        padding: 80px 20px;
+        background: white;
+    }
+    .tagline h2 {
+        font-size: 36px;
+        color: #2d5a3d;
+        margin-bottom: 20px;
+    }
+    .stats {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://rutrav.ru/wp-content/uploads/2025/07/zeleniy-gorod.jpg') center/cover fixed;
+        padding: 80px 20px;
+        color: white;
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        text-align: center;
+    }
+    .stat-item h3 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+    .portfolio {
+        padding: 80px 20px;
+    }
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .portfolio-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    footer {
+        background: #2d5a3d;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+    }
   </style>
 </head>
 <body>
     <header>
-        Ландшафтный дизайн
-    </header>
-    <div class="hero">
-        <h2>Создаём красивые сады</h2>
-        <p class="down">Ландшафтный дизайн </p>
-        <div class="content-wrapper">
-            <div class="image-block">
-                <img src="https://img.7dach.ru/image/600/00/00/48/2016/11/15/fa21c9.jpg"/>
-            </div> 
-            <div class="text-block">
-                <p>
-                    Ландшафтный дизайн <br> 
-                    Благоустройство и озеленение участка
-                </p>
-                <span class="btn">Получить консультацию</span>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Название Компании<br><small>ландшафтный дизайн</small></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Портфолио</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header-phone">
+                    +7 000 000 00 00<br>
+                    +7 000 000 00 00
+                </div>
+                <button class="btn">ОБРАТНАЯ СВЯЗЬ</button>
             </div>
         </div>
-    </div>
+    </header>
     
+    <section class="hero">
+        <div class="container">
+            <h1>Ландшафтный дизайн</h1>
+            <p class="hero-subtitle">Ландшафтный дизайн<br>Благоустройство и озеленение участка</p>
+            <button class="btn">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</button>
+        </div>
+    </section>
+
+    <section class="services-grid container">
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbJlK2UtvwZXGFlMGCRDyeo3-sduHxeUxbwQ&s" alt="Проектирование">
+            <h3>ПРОЕКТИРОВАНИЕ</h3>
+            <p>Разработка индивидуального проекта ландшафтного дизайна</p>
+        </div>
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbJlK2UtvwZXGFlMGCRDyeo3-sduHxeUxbwQ&s" alt="Освещение">
+            <h3>ЛАНДШАФТНОЕ ОСВЕЩЕНИЕ УЧАСТКА</h3>
+            <p>Профессиональное освещение территории и сада</p>
+        </div>
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbJlK2UtvwZXGFlMGCRDyeo3-sduHxeUxbwQ&s" alt="Озеленение">
+            <h3>БЛАГОУСТРОЙСТВО И ОЗЕЛЕНЕНИЕ УЧАСТКА</h3>
+            <p>Полный комплекс работ по благоустройству</p>
+        </div>
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbJlK2UtvwZXGFlMGCRDyeo3-sduHxeUxbwQ&s" alt="Газон">
+            <h3>УСТРОЙСТВО ГАЗОНА</h3>
+            <p>Создание идеального газона на вашем участке</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h4>ИНДИВИДУАЛЬНЫЙ ПРОЕКТ</h4>
+                    <p>под особенности участка</p>
+                </div>
+                <div class="feature-box">
+                    <h4>ЭКОЛОГИЧНЫЕ</h4>
+                    <p>и качественные материалы</p>
+                </div>
+                <div class="feature-box">
+                    <h4>КОМПЛЕКСНЫЙ ПОДХОД</h4>
+                    <p>от идеи до ухода</p>
+                </div>
+                <div class="feature-box">
+                    <h4>ДОЛГОВЕЧНЫЙ РЕЗУЛЬТАТ</h4>
+                    <p>и эстетика на годы</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title">ПОПУЛЯРНЫЕ УСЛУГИ</h2>
+    
+    <section class="popular-services container">
+        <div class="service-tabs">
+            <button class="tab active">ПРОЕКТИРОВАНИЕ</button>
+            <button class="tab">МОДЕЛИ И ПРУДЫ</button>
+            <button class="tab">ОСВЕЩЕНИЕ</button>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <img src="https://profsopstroy.ru/d/1_73.jpg" alt="Проект">
+                <div class="pricing-card-content">
+                    <h4>Проект ландшафтного дизайна</h4>
+                    <p>Площадь: 10-20 соток</p>
+                    <div class="price">250 000 ₽</div>
+                    <button class="btn">Подробнее</button>
+                </div>
+            </div>
+            <div class="pricing-card">
+                <img src="https://profsopstroy.ru/d/1_73.jpg" alt="Эскиз">
+                <div class="pricing-card-content">
+                    <h4>Эскизное проектирование</h4>
+                    <p>Площадь: 5-10 соток</p>
+                    <div class="price">200 000 ₽</div>
+                    <button class="btn">Подробнее</button>
+                </div>
+            </div>
+            <div class="pricing-card">
+                <img src="https://profsopstroy.ru/d/1_73.jpg" alt="Альпийская горка">
+                <div class="pricing-card-content">
+                    <h4>Альпийская горка</h4>
+                    <p>Площадь: 5-15 м²</p>
+                    <div class="price">30 000 ₽</div>
+                    <button class="btn">Подробнее</button>
+                </div>
+            </div>
+            <div class="pricing-card">
+                <img src="https://profsopstroy.ru/d/1_73.jpg" alt="Газон">
+                <div class="pricing-card-content">
+                    <h4>Укладка газона</h4>
+                    <p>Площадь: до 10 соток</p>
+                    <div class="price">600 000 ₽</div>
+                    <button class="btn">Подробнее</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">ПОЯВИЛИСЬ ВОПРОСЫ?</h2>
+            <p>Наши специалисты с радостью проконсультируют вас бесплатно</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Ваше имя">
+                <input type="tel" placeholder="+7 (___) ___-__-__">
+                <textarea rows="4" placeholder="Ваш вопрос"></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="tagline">
+        <div class="container">
+            <h2>ВАШ САД - НАШИМИ РУКАМИ!</h2>
+            <p>Мы предлагаем полный спектр услуг по ландшафтному дизайну и благоустройству территорий любой сложности</p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25</h3>
+                    <p>лет опыта</p>
+                </div>
+                <div class="stat-item">
+                    <h3>280</h3>
+                    <p>выполненных проектов</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>довольных клиентов</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100000</h3>
+                    <p>м² озеленено</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>года гарантии</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://zag-dom.com/upload/medialibrary/4cc/2.jpg" alt="Проект 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCaWlP34yyNjSvItZuVcwyxSquTS6_vMgKA&s" alt="Проект 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://travokosovv.ru/wp-content/uploads/2023/03/blagoustrojstvo.jpg" alt="Проект 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Ландшафтный дизайн. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
+</html>
