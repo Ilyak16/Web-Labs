@@ -33,12 +33,33 @@ function longestBinaryFunc(num) {
     
     return { binary: bin, maxLen: max };
 }
+function Fifthfunc
+(str) {
+    const freq = {};
+    for (const ch of str) freq[ch] = (freq[ch] || 0) + 1;
+    for (const ch of str) if (freq[ch] === 1) return ch;
+    return 'Все повторяются';
+}
+
+function Sixthfunc(length) {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let res = '';
+    for (let i = 0; i < length; i++) res += chars[Math.floor(Math.random() * chars.length)];
+    return res;
+}
+
+function Seventhfunc(str) {
+    return [...new Set(str)].join('');
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const btn1 = document.getElementById("button1");
     const btn2 = document.getElementById("button2");
     const btn3 = document.getElementById("button3");
     const btn4 = document.getElementById("button4");
+    const btn5 = document.getElementById("button5");
+    const btn6 = document.getElementById("button6");
+    const btn7 = document.getElementById("button7");
     
     if (btn1) {
         btn1.addEventListener("click", () => {
@@ -82,6 +103,27 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 alert("Ошибка вычисления");
             }
+        });
+    }
+    if (btn5) {
+        btn5.addEventListener("click", () =>{
+            const string = document.getElementById("input5").value;
+            const result = Fifthfunc(string);
+            alert(result);
+        });
+    }
+    if (btn6) {
+        btn6.addEventListener("click", () =>{
+            const len = document.getElementById("input6").value;
+            const result = Sixthfunc(len);
+            alert(result);
+        });
+    }
+    if (btn7) {
+        btn7.addEventListener("click", () =>{
+            const string = document.getElementById("input7").value;
+            const result = Seventhfunc(string);
+            alert(result);
         });
     }
 });
