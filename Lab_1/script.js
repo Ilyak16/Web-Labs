@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'sm_state_SEE': { name: 'Эстергётланд', temp: '+10°C', condition: '⛅ Облачно', humidity: '68%', desc: 'Комфортная температура' },
         'sm_state_SEF': { name: 'Йёнчёпинг', temp: '+9°C', condition: '⛅ Облачно', humidity: '70%', desc: 'Прохлада и свежесть' },
         'sm_state_SEG': { name: 'Крунуберг', temp: '+8°C', condition: '🌤️ Переменная облачность', humidity: '72%', desc: 'Уютная атмосфера' },
-        'sm_state_SEH': { name: 'Кальмар', temp: '+10°C', condition: '🌤️ Ясно', humidity: '66%', desc: 'Хорошая видимость' },
         'sm_state_SEI': { name: 'Готланд', temp: '+9°C', condition: '🌬️ Ветрено', humidity: '75%', desc: 'Свежий морской бриз' },
         'sm_state_SEK': { name: 'Блекинге', temp: '+11°C', condition: '☀️ Солнечно', humidity: '65%', desc: 'Идеально для пляжного отдыха' },
         'sm_state_SEM': { name: 'Сконе', temp: '+12°C', condition: '☀️ Солнечно', humidity: '62%', desc: 'Тёплый южный регион' },
@@ -23,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'sm_state_SEY': { name: 'Вестерноррланд', temp: '+6°C', condition: '🌫️ Туман', humidity: '82%', desc: 'Таинственная атмосфера' },
         'sm_state_SEZ': { name: 'Емтланд', temp: '+5°C', condition: '❄️ Снег', humidity: '85%', desc: 'Зимние развлечения' },
         'sm_state_SEAC': { name: 'Вестерботтен', temp: '+3°C', condition: '❄️ Снег', humidity: '88%', desc: 'Северный регион' },
-        'sm_state_SEBD': { name: 'Норрботтен', temp: '+2°C', condition: '❄️ Мороз', humidity: '90%', desc: 'Самый северный регион, возможно северное сияние' }
+        'sm_state_SEBD': { name: 'Норрботтен', temp: '+2°C', condition: '❄️ Мороз', humidity: '90%', desc: 'Самый северный регион, возможно северное сияние' },
+        'sm_state_SEAB': { name: 'Стокгольм', temp: '+12°C', condition: '☀️ Солнечно', humidity: '64%', desc: 'Столица Швеции, крупнейший город' }
     };
 
     // ==================== КАРТА ШВЕЦИИ ====================
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // ==================== КАРУСЕЛЬ С АНИМАЦИЕЙ CSS ====================
-    const carousel = {
+        const carousel = {
         track: document.querySelector('.carousel-track'),
         items: document.querySelectorAll('.carousel-item'),
         indicators: document.querySelectorAll('.indicator'),
@@ -184,23 +184,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         init() {
             if (!this.track) return;
-            this.startAutoPlay();
-            this.addIndicators();
             this.addEventListeners();
+            this.startAutoPlay();
+            this.updateIndicators(); // Инициализация индикаторов
             console.log('✅ Карусель инициализирована');
         },
 
-        addIndicators() {
-            this.items.forEach((_, i) => {
-                const dot = document.createElement('span');
-                dot.className = `indicator ${i === 0 ? 'active' : ''}`;
-                dot.dataset.index = i;
-                this.track.parentElement.querySelector('.carousel-indicators')?.appendChild(dot);
-            });
-            this.indicators = document.querySelectorAll('.indicator');
-        },
-
         goToSlide(index) {
+            if (index < 0) index = this.items.length - 1;
+            if (index >= this.items.length) index = 0;
+            
             this.currentIndex = index;
             this.track.style.transform = `translateX(-${index * 100}%)`;
             this.updateIndicators();
@@ -208,11 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         next() {
-            this.goToSlide((this.currentIndex + 1) % this.items.length);
+            this.goToSlide(this.currentIndex + 1);
         },
 
         prev() {
-            this.goToSlide((this.currentIndex - 1 + this.items.length) % this.items.length);
+            this.goToSlide(this.currentIndex - 1);
         },
 
         updateIndicators() {
@@ -238,11 +231,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = this.track?.parentElement;
             if (!container) return;
 
-            // Индикаторы
-            container.addEventListener('click', (e) => {
-                if (e.target.classList.contains('indicator')) {
-                    this.goToSlide(parseInt(e.target.dataset.index));
-                }
+            // Клик по индикаторам
+            this.indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    this.goToSlide(index);
+                });
             });
 
             // Пауза при наведении
