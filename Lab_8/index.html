@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 8</title>
+</head>
+<body>
+
+  <h1>Lab 8</h1>
+
+  <h2>Задача 1</h2>
+
+  <button onclick="counter(5)">
+    counter(5)
+  </button>
+
+  <button onclick="myCounter.start()">
+    Start
+  </button>
+
+  <button onclick="myCounter.pause()">
+    Pause
+  </button>
+
+  <button onclick="myCounter.stop()">
+    Stop
+  </button>
+
+  <hr>
+
+  <h2>Задача 2</h2>
+
+  <button onclick="counterWithDelay(5)">
+    Counter with delay
+  </button>
+
+  <button onclick="showRepo()">
+    Первый репозиторий
+  </button>
+
+  <hr>
+
+  <h2>Задача 3</h2>
+
+  <button onclick="getGithubUser()">
+    GitHub User
+  </button>
+
+  <script src="Script_lab_8.js"></script>
+
+  <script>
+
+    async function showRepo() {
+
+      const username =
+        prompt("Введите GitHub username", "octocat");
+
+      const repo =
+        await getFirstRepoName(username);
+
+      alert("Первый репозиторий: " + repo);
+    }
+
+  </script>
+
+</body>
+</html>
