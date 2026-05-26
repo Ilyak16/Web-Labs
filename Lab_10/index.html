@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Прогноз погоды</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="weather-container">
+
+  <div class="arrow" onclick="prevDay()">
+    &#10094;
+  </div>
+
+  <div class="card">
+    <div class="date" id="date"></div>
+
+    <div class="temp" id="temp"></div>
+
+    <div class="info" id="info"></div>
+  </div>
+
+  <div class="arrow" onclick="nextDay()">
+    &#10095;
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
